@@ -24,9 +24,6 @@ public class hardwareMap
         BLwheel  = hwMap.dcMotor.get("BLwheel");
         BRwheel  = hwMap.dcMotor.get("BRwheel");
 
-        FLwheel.setDirection(DcMotorSimple.Direction.REVERSE);
-        BLwheel.setDirection(DcMotorSimple.Direction.REVERSE);
-
 
         //Set all motors to zero power
         FLwheel.setPower(0);
