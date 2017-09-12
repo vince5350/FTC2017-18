@@ -1,0 +1,43 @@
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
+public class hardwareMap
+{
+    public DcMotor FLwheel  = null;
+    public DcMotor FRwheel  = null;
+    public DcMotor BLwheel  = null;
+    public DcMotor BRwheel  = null;
+
+    HardwareMap hwMap       = null;
+
+    public hardwareMap(){}
+
+    public void init(HardwareMap ahwMap){
+        hwMap = ahwMap;
+
+        //Define and init motors
+        FLwheel  = hwMap.dcMotor.get("FLwheel");
+        FRwheel  = hwMap.dcMotor.get("FRwheel");
+        BLwheel  = hwMap.dcMotor.get("BLwheel");
+        BRwheel  = hwMap.dcMotor.get("BRwheel");
+
+        FLwheel.setDirection(DcMotorSimple.Direction.REVERSE);
+        BLwheel.setDirection(DcMotorSimple.Direction.REVERSE);
+
+
+        //Set all motors to zero power
+        FLwheel.setPower(0);
+        FRwheel.setPower(0);
+        BLwheel.setPower(0);
+        BRwheel.setPower(0);
+
+        //Set motors to run w/o encoders
+        FLwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        FRwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        BLwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        BRwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    }
+}
