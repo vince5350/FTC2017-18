@@ -1,7 +1,6 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class hardwareMap
@@ -11,7 +10,7 @@ public class hardwareMap
     public DcMotor BLwheel  = null;
     public DcMotor BRwheel  = null;
 
-    HardwareMap hwMap       = null;
+    private HardwareMap hwMap       = null;
 
     public hardwareMap(){}
 
