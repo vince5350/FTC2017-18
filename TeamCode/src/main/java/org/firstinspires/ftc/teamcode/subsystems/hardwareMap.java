@@ -10,11 +10,11 @@ public class hardwareMap
     public DcMotor BLwheel  = null;
     public DcMotor BRwheel  = null;
 
-    private HardwareMap hwMap       = null;
+    private com.qualcomm.robotcore.hardware.HardwareMap hwMap       = null;
 
     public hardwareMap(){}
 
-    public void init(HardwareMap ahwMap){
+    public void init(com.qualcomm.robotcore.hardware.HardwareMap ahwMap){
         hwMap = ahwMap;
 
         //Define and init motors

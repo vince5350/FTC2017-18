@@ -1,13 +1,17 @@
 package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.qualcomm.robotcore.util.Range;
-
 import org.firstinspires.ftc.teamcode.altDriverPeriod;
 
-public class strafe extends altDriverPeriod {
+public class Wheels extends altDriverPeriod {
+
     public void loop() {
         //Wheels
         float lStickX, lStickY, lTrigger, rTrigger;
+        boolean bButton;
+
+        bButton = gamepad1.b;
+
         lStickX = gamepad1.left_stick_x;
         lStickY = gamepad1.left_stick_y;
         lTrigger = gamepad1.left_trigger;
@@ -65,6 +69,14 @@ public class strafe extends altDriverPeriod {
             robot.FRwheel.setPower(0.6);
             robot.BLwheel.setPower(0.6);
             robot.BRwheel.setPower(0.6);
+        }
+
+        //Boost
+        if (bButton){
+            robot.FLwheel.setPower((-(lStickY+lStickX))*2);
+            robot.FRwheel.setPower((lStickY+lStickX)*2);
+            robot.BLwheel.setPower((-(lStickY+lStickX))*2);
+            robot.BRwheel.setPower((lStickY+lStickX)*2);
         }
     }
 }

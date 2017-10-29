@@ -1,21 +1,18 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.subsystems.hardwareMap;
-import org.firstinspires.ftc.teamcode.subsystems.strafe;
 
-@Disabled
+//@Disabled
 @TeleOp(name="Code Test v.1")
 public class driverPeriod extends OpMode {
 
     public driverPeriod(){}
 
-    private hardwareMap robot = new hardwareMap();
-    strafe drive = new strafe();
+    private org.firstinspires.ftc.teamcode.subsystems.hardwareMap robot = new hardwareMap();
 
     public void init(){
         //Initiates variables if not put in hardware map
@@ -95,8 +92,6 @@ public class driverPeriod extends OpMode {
             robot.BLwheel.setPower((-(lStickY+lStickX))*2);
             robot.BRwheel.setPower((lStickY+lStickX)*2);
         }
-
     }
-
     public void stop(){}
 }
