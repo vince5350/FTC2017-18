@@ -2,29 +2,29 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
-import org.firstinspires.ftc.teamcode.subsystems.Wheels;
-import org.firstinspires.ftc.teamcode.subsystems.TelemetryLoop;
-import org.firstinspires.ftc.teamcode.subsystems.hardwareMap;
+import org.firstinspires.ftc.teamcode.subsystems.strafe;
+//import com.google.blocks.firstinspires.ftc.teamcode.subsystems.TelemetryLoop;
+import org.firstinspires.ftc.teamcode.subsystems.hwMap;
 
 //@Disabled
-@TeleOp(name="Code Test v.2")
-
+@TeleOp
 public class altDriverPeriod extends OpMode {
-
+    private hwMap robot = new hwMap();
+    private Gamepad gamepad1 = new Gamepad();
+    private strafe wheels = new strafe(robot, gamepad1);
     public altDriverPeriod(){}
 
-    protected hardwareMap robot = new hardwareMap();
-    protected Wheels drive = new Wheels();
-    private TelemetryLoop telemetryLoop = new TelemetryLoop();
+
+    //private TelemetryLoop telemetryLoop = new TelemetryLoop();
 
     public void init(){
         robot.init(hardwareMap);
-        telemetry.addData ("Say", "Robot Initiated");
+
     }
     public void loop(){
-        drive.loop();
-        telemetryLoop.loop();
+        wheels.loop();
     }
     public void stop(){}
 }
