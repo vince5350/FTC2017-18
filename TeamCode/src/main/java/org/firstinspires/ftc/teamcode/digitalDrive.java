@@ -12,6 +12,9 @@ public class digitalDrive extends OpMode {
 
     public digitalDrive() {
     }
+    boolean driveSpeedToggle = false;
+    int delay = 30;
+    double turnSpeed, regularSpeed;
 
     private hwMap robot = new hwMap();
 
@@ -22,8 +25,22 @@ public class digitalDrive extends OpMode {
 
     public void loop() {
         //strafe
-
         boolean dpadDown, dpadUp, dpadRight, dpadLeft, lBumper, rBumper;
+
+
+        delay += 1;
+
+        if (gamepad1.a && delay > 30) {
+            driveSpeedToggle =! driveSpeedToggle;
+        }
+        if(driveSpeedToggle){
+            turnSpeed = 1.0;
+            regularSpeed = 1.0;
+        } else if(!driveSpeedToggle){
+            turnSpeed = 0.3;
+            regularSpeed = 0.6;
+        }
+
 
         dpadDown = gamepad1.dpad_down;
         dpadUp = gamepad1.dpad_up;
@@ -37,51 +54,53 @@ public class digitalDrive extends OpMode {
 
         //Forward
         if (dpadUp) {
-            robot.FLwheel.setPower(-1.3);
-            robot.FRwheel.setPower(1.3);
-            robot.BLwheel.setPower(-1.3);
-            robot.BRwheel.setPower(1.3);
+            robot.FLwheel.setPower(-regularSpeed);
+            robot.FRwheel.setPower(regularSpeed);
+            robot.BLwheel.setPower(-regularSpeed);
+            robot.BRwheel.setPower(regularSpeed);
         }
 
         //Backward
         if (dpadDown) {
-            robot.FLwheel.setPower(1.3);
-            robot.FRwheel.setPower(-1.3);
-            robot.BLwheel.setPower(1.3);
-            robot.BRwheel.setPower(-1.3);
+            robot.FLwheel.setPower(regularSpeed);
+            robot.FRwheel.setPower(-regularSpeed);
+            robot.BLwheel.setPower(regularSpeed);
+            robot.BRwheel.setPower(-regularSpeed);
         }
 
         //Left
         if (dpadLeft) {
-            robot.FLwheel.setPower(1.3);
-            robot.FRwheel.setPower(1.3);
-            robot.BLwheel.setPower(-1.3);
-            robot.BRwheel.setPower(-1.3);
+            robot.FLwheel.setPower(regularSpeed);
+            robot.FRwheel.setPower(regularSpeed);
+            robot.BLwheel.setPower(-regularSpeed);
+            robot.BRwheel.setPower(-regularSpeed);
         }
 
         //Right
         if (dpadRight) {
-            robot.FLwheel.setPower(-1.3);
-            robot.FRwheel.setPower(-1.3);
-            robot.BLwheel.setPower(1.3);
-            robot.BRwheel.setPower(1.3);
+            robot.FLwheel.setPower(-regularSpeed);
+            robot.FRwheel.setPower(-regularSpeed);
+            robot.BLwheel.setPower(regularSpeed);
+            robot.BRwheel.setPower(regularSpeed);
         }
 
         //Turn Left
         if (lBumper) {
-            robot.FLwheel.setPower(0.8);
-            robot.FRwheel.setPower(0.8);
-            robot.BLwheel.setPower(0.8);
-            robot.BRwheel.setPower(0.8);
+            robot.FLwheel.setPower(-turnSpeed);
+            robot.FRwheel.setPower(-turnSpeed);
+            robot.BLwheel.setPower(-turnSpeed);
+            robot.BRwheel.setPower(-turnSpeed);
         }
 
         //Turn Right
         if (rBumper) {
-            robot.FLwheel.setPower(-0.8);
-            robot.FRwheel.setPower(-0.8);
-            robot.BLwheel.setPower(-0.8);
-            robot.BRwheel.setPower(-0.8);
+            robot.FLwheel.setPower(turnSpeed);
+            robot.FRwheel.setPower(turnSpeed);
+            robot.BLwheel.setPower(turnSpeed);
+            robot.BRwheel.setPower(turnSpeed);
         }
+
+        //
 
         //Stop robot
         if (!dpadDown && !dpadUp && !dpadLeft && !dpadRight && !rBumper && !lBumper) {
