@@ -30,10 +30,10 @@ public class hwMap {
         BRwheel.setPower(0);
 
         //Set motors to run w/o encoders
-        FLwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        FRwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        BLwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        BRwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        FLwheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        FRwheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        BLwheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        BRwheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         //FRwheel.setDirection(DcMotor.Direction.FORWARD);
         //FLwheel.setDirection(DcMotor.Direction.REVERSE);
         //BRwheel.setDirection(DcMotor.Direction.REVERSE);
