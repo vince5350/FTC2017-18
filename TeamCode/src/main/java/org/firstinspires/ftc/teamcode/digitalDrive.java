@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.util.Range;
+
 
 import org.firstinspires.ftc.teamcode.subsystems.hwMap;
 
-//@Disabled
+@Disabled
 @TeleOp
 public class digitalDrive extends OpMode {
 
@@ -24,7 +25,7 @@ public class digitalDrive extends OpMode {
     }
 
     public void loop() {
-        //strafe
+        //strafe1
         boolean dpadDown, dpadUp, dpadRight, dpadLeft, lBumper, rBumper;
 
 
